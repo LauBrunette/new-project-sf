@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <section class="articles-container">
+
+        {% if articles | length > 0 %}
+            {% for article in articles %}
+                <article class="article">
+                    <a href="{{ path('show_article', {'id': article.id}) }}">
+                        <h1>{{article.title}}</h1>
+                    </a>
+                    <p>{{ article.content }}</p>
+                    <img src=" {{ article.image }}">
+                </article>
+            {% endfor %}
+        {% else %}
+            <p>Aucun article trouvé pour ce contenu</p>
+        {% endif %}
+    </section>
+
+{% endblock main %}

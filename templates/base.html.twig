@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+</head>
+
+<body>
+
+<header class="header">
+
+    <form class="search-form-articles" action="{{ path('search_articles') }}">
+        {# la valeur rentrée par l'utilisateur dans cet input sera envoyée dans l'url
+            avec un parametre GET ayant le même nom que l'input (donc search, soit dans l'url : ?search=xxxx
+        #}
+        <input type="text" name="search">
+    </form>
+
+    <nav class="menu-container">
+        <ul class="menu">
+            <li><a href="{{ path('home') }}">Accueil</a></li>
+            <li><a href="{{ path('list_articles') }}">Articles</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+
+    {% for message in app.flashes('success') %}
+        <div class="flash-messages">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% block main %}{% endblock main %}
+</main>
+
+</body>
+</html>

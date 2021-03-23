@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <section class="articles-container">
+
+        <article class="article">
+            <a href="{{ path('show_article', {'id': article.id}) }}">
+                <h1>{{article.title}}</h1>
+            </a>
+            <p>{{ article.content }}</p>
+            <img src=" {{ article.image }}">
+        </article>
+
+    </section>
+
+{% endblock %}

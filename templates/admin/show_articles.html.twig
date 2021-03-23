@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <section class="articles-container">
+        {% for article in articles %}
+            <article class="article">
+
+                <h1>{{article.title}}</h1>
+                <p>{{ article.content }}</p>
+                <img src=" {{ article.image }}">
+
+                <a href="{{ path('admin_delete_article', {'id': article.id}) }}">Supprimer cet article</a>
+            </article>
+        {% endfor %}
+    </section>
+
+{% endblock %}
