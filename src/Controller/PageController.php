@@ -10,6 +10,7 @@ class PageController extends AbstractController
 {
 
     /**
+     * Lorsque l'utilisateur est sur l'URL "home", on affiche le fichier twig relié (donc la page d'accueil
      * @Route("/home", name="home")
      */
     public function home()

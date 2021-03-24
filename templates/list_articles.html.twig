@@ -7,11 +7,14 @@
         {% if articles | length > 0 %}
             {% for article in articles %}
                 <article class="article">
+                    {% if article.category %}
+                        <h2>{{ article.category.title }}</h2>
+                    {% endif %}
+
                     <a href="{{ path('show_article', {'id': article.id}) }}">
                         <h1>{{article.title}}</h1>
                     </a>
                     <p>{{ article.content }}</p>
-                    <img src=" {{ article.image }}">
                 </article>
             {% endfor %}
         {% else %}

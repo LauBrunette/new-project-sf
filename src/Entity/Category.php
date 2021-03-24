@@ -37,6 +37,26 @@ class Category
      */
     private $isPublished;
 
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="category")
+     */
+    private $articles;
+
+    /**
+     * Comme on a un OneToMany, on doit voir son opposé (ManyToOne) comme une catégorie peut avoir plusieurs
+     * articles, mais un article ne peut avoir plusieurs catégories.
+     * La propriété qui va stocker les articles sera un tableau, donc un Array.
+     */
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,4 +109,15 @@ class Category
 
         return $this;
     }
+
+    public function getArticles()
+    {
+        return $this->articles;
+    }
+
+    public function setArticles($articles): void
+    {
+        $this->articles = $articles;
+    }
+
 }

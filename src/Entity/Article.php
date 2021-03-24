@@ -37,6 +37,16 @@ class Article
      */
     private $createdAt;
 
+
+    /**
+     * L'annotation "ManyToOne" (crée une relation) veut dire qu'un article ne peut avoir qu'une seule catégorie
+     * Le "inversedBy" veut dire qu'au contraire, les catégories peuvent comporter plusieurs articles
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="articles")
+     */
+    private $category;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,4 +99,21 @@ class Article
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category): void
+    {
+        $this->category = $category;
+    }
+
 }

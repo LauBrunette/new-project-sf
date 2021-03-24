@@ -1,0 +1,19 @@
+
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    {% for category in categories %}
+        <h2>{{ category.title }}</h2>
+
+        {# category.articles est un arrayCollection, il faut donc faire une boucle dessus afin de récupérer tous les articles
+        On affiche ici tous les items par catégorie #}
+
+        {# Ici on demande : dès qu'il y a un article dans la catégorie, on l'affiche (et on fait pareil pour tous les items #}
+        {% for article in category.articles %}
+            <p>{{ article.title }}</p>
+        {% endfor %}
+
+    {% endfor %}
+
+{% endblock %}

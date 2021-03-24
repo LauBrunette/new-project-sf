@@ -14,9 +14,7 @@
 <header class="header">
 
     <form class="search-form-articles" action="{{ path('search_articles') }}">
-        {# la valeur rentrée par l'utilisateur dans cet input sera envoyée dans l'url
-            avec un parametre GET ayant le même nom que l'input (donc search, soit dans l'url : ?search=xxxx
-        #}
+        {# Ce que l'utilisateur recherche sera "envoyé" dans l'URL avec le paramètre GET #}
         <input type="text" name="search">
     </form>
 
@@ -30,7 +28,7 @@
 
 <main>
 
-
+    {# Messages qui vont s'afficher, et qui ne sont pas des fichiers twig #}
     {% for message in app.flashes('success') %}
         <div class="flash-messages">
             {{ message }}
