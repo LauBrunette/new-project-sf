@@ -4,6 +4,7 @@
 namespace App\Controller\admin;
 
 use App\Entity\Article;
+use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,25 +22,18 @@ class ArticleController extends AbstractController
      */
     public function insertArticle(EntityManagerInterface $entityManager)
     {
-        // L'EntityManager permet de récupérer les données de l'article (title, content et createdAt dans ce cas)
-        // et d'indiquer à Doctrine qu'on a créé de nouvelles entités. Cela nous permettra ensuite d'envoyer
-        // ces données en BDD grâce à la commande "flush"
 
-        // Ceci nous permet de créer une nouvelle entité (en gros un nouvel élément dans la BDD)
-        // avec les valeurs mises entre les parenthèses
         $article = new Article();
-        $article->setTitle('Article inséré depuis le contrôleur');
-        $article->setContent('blab abla');
-        $article->setCreatedAt(new \DateTime('NOW'));
 
-        // On utilise cet outil pour dire à Doctrine qu'on a créé de nouvelles entités
-        $entityManager->persist($article);
-        // Elles sont ensuite envoyées en BDD grâce à cette fonction
-        $entityManager->flush();
+        // On crée un nouveau formulaire
+        $articleForm = $this->createForm(ArticleType::class, $article);
 
-        return $this->render('insert_article.html.twig', [
-            'article' => $article
+        // On affiche la réponse, qui sera compilée par le navigateur
+        // La réponse sera affichée grâce au fichier twig
+        return $this->render('admin/article_insert.html.twig', [
+            'articleFormView' => $articleForm->createView()
         ]);
+
     }
 
 

@@ -54,9 +54,6 @@ class Category
         $this->articles = new ArrayCollection();
     }
 
-
-
-
     public function getId(): ?int
     {
         return $this->id;
