@@ -8,6 +8,7 @@ use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -20,16 +21,31 @@ class ArticleController extends AbstractController
     /**
      * @Route("/admin/articles/insert", name="admin_insert_article")
      */
-    public function insertArticle(EntityManagerInterface $entityManager)
+    public function insertArticle(EntityManagerInterface $entityManager, Request $request)
     {
-
+        // On crée une instance de l'entité Article
         $article = new Article();
 
         // On crée un nouveau formulaire
         $articleForm = $this->createForm(ArticleType::class, $article);
 
+        // On récupère les données de la méthode POST (donc du formulaire rempli)
+        $articleForm->handleRequest($request);
+
+        // Si le formulaire est bel et bien envoyé (submit) et qu'il est valide...
+        if ($articleForm->isSubmitted() && $articleForm->isValid() ) {
+
+            // ...on récupère l'entité Article avec les nouvelles données
+            $article = $articleForm->getData();
+
+            // On enregistre et on envoie les infos en BDD
+            $entityManager->persist($article);
+            $entityManager->flush();
+
+        }
+
         // On affiche la réponse, qui sera compilée par le navigateur
-        // La réponse sera affichée grâce au fichier twig
+        // La réponse sera affichée grâce au fichier twig. Le "createView" permet d'afficher le formulaire
         return $this->render('admin/article_insert.html.twig', [
             'articleFormView' => $articleForm->createView()
         ]);

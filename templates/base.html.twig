@@ -13,10 +13,12 @@
 
 <header class="header">
 
-    <form class="search-form-articles" action="{{ path('search_articles') }}">
-        {# Ce que l'utilisateur recherche sera "envoyé" dans l'URL avec le paramètre GET #}
-        <input type="text" name="search">
-    </form>
+    <div>
+        <form class="search-form-articles" action="{{ path('search_articles') }}">
+            {# Ce que l'utilisateur recherche sera "envoyé" dans l'URL avec le paramètre GET #}
+            <input type="text" name="search">
+        </form>
+    </div>
 
     <nav class="menu-container">
         <ul class="menu">
@@ -37,6 +39,16 @@
 
     {% block main %}{% endblock main %}
 </main>
+
+<footer class="footer">
+
+    <ul class="menu">
+        <li>Mentions légales</li>
+        <li>Nous contacter</li>
+        <li>A propos</li>
+    </ul>
+
+</footer>
 
 </body>
 </html>

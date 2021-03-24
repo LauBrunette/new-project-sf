@@ -16,11 +16,16 @@
 
 .header {
     height: 100px;
-    background-color: lightsalmon;
+    background-color: lightsteelblue;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.img {
+    height: 100px;
+    width: auto;
 }
 
 .menu {
@@ -33,7 +38,7 @@
 }
 
 img {
-    height: 200px;
+    height: 100px;
     width: auto;
 }
 

@@ -14,6 +14,8 @@ class ArticleType extends AbstractType
     // Le $builder nous permet de créer ce formulaire avec les champs voulus
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+        // Ceci est notre gabarit de formulaire
         $builder
             ->add('title')
             ->add('content')
