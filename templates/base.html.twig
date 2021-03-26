@@ -12,6 +12,10 @@
 <body>
 
 <header class="header">
+    
+    <div>
+        <img src="" alt="">
+    </div>
 
     <div>
         <form class="search-form-articles" action="{{ path('search_articles') }}">
@@ -24,6 +28,8 @@
         <ul class="menu">
             <li><a href="{{ path('home') }}">Accueil</a></li>
             <li><a href="{{ path('list_articles') }}">Articles</a></li>
+            <li><a href="{{ path('categories_list') }}">Catégories</a></li>
+            <li><a href="{{ path('admin_show_articles') }}">Se connecter</a></li>
         </ul>
     </nav>
 </header>

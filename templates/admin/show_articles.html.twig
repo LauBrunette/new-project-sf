@@ -3,16 +3,25 @@
 {% block main %}
 
     <section class="articles-container">
-        {% for article in articles %}
-            <article class="article">
 
-                <h1>{{article.title}}</h1>
-                <p>{{ article.content }}</p>
-                <img src=" {{ article.image }}">
+        {% if articles | length > 0 %}
+            {% for article in articles %}
+                <article class="article">
 
-                <a href="{{ path('admin_delete_article', {'id': article.id}) }}">Supprimer cet article</a>
-            </article>
-        {% endfor %}
+                    <h1>{{ article.title }}</h1>
+                    <p>{{ article.content }}</p>
+                    <img src=" {{ article.image }}">
+
+                    <a href="{{ path('admin_delete_article', {'id': article.id}) }}">Supprimer cet article</a>
+                    <a href="{{ path('admin_update_article', {'id': article.id}) }}">Modifier cet article</a>
+
+                </article>
+            {% endfor %}
+        {% endif %}
     </section>
 
-{% endblock %}
+    <section class="insert-button">
+        <p><a href="{{ path('admin_insert_article') }}">Insérer un nouvel article</a></p>
+    </section>
+
+{% endblock main %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    {{ form_start(categoryFormView) }}
+
+    <div class="form-title">
+        {{ form_label(categoryFormView.title, 'Titre', {'label_attr': {'class': 'test'}}) }}
+        {{ form_widget(categoryFormView.title, {'attr': {'class': 'test'}}) }}
+    </div>
+    <div class="form-content">
+        {{ form_label(categoryFormView.description, 'Desription', {'label_attr': {'class': 'test'}}) }}
+        {{ form_widget(categoryFormView.description, {'attr': {'class': 'test'}}) }}
+    </div>
+    <div class="form-createdAt">
+        {{ form_label(categoryFormView.createdAt, 'Créé le :', {'label_attr': {'class': 'test'}}) }}
+        {{ form_widget(categoryFormView.createdAt, {'attr': {'class': 'test'}}) }}
+    </div>
+    <div class="form-isPublished">
+        {{ form_label(categoryFormView.isPublished, 'A été publié :', {'label_attr': {'class': 'test'}}) }}
+        {{ form_widget(categoryFormView.isPublished, {'attr': {'class': 'test'}}) }}
+    </div>
+    <div class="form-submit">
+        {{ form_widget(categoryFormView.submit, {'attr': {'class': 'test'}}) }}
+    </div>
+
+    {{ form_end(categoryFormView) }}
+
+{% endblock %}

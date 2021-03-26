@@ -2,9 +2,46 @@
 
 {% block main %}
 
-    {# Le formview permet d'afficher les données reçues #}
-    <section class="formulaire">
-        {{ form(articleFormView) }}
-    </section>
+    {# je créé mon formulaire avec la fonction twig form et la variable
+        contenant la vue de mon formulaire
+    #}
+
+    {{ form_start(articleFormView) }}
+
+        <div class="title-form-article">
+            {{ form_errors(articleFormView.title) }}
+            {{ form_label(articleFormView.title, 'Titre', {'label_attr': {'class': 'test'}}) }}
+            {{ form_widget(articleFormView.title, {'attr': {'class': 'test'}}) }}
+        </div>
+
+        <div class="content-form-article">
+            {{ form_errors(articleFormView.content) }}
+            {{ form_label(articleFormView.content) }}
+            {{ form_widget(articleFormView.content, {'attr': {'class': 'test'}}) }}
+        </div>
+
+        <div class="createdat-form-article">
+            {{ form_errors(articleFormView.createdAt) }}
+            {{ form_label(articleFormView.createdAt) }}
+            {{ form_widget(articleFormView.createdAt, {'attr': {'class': 'test'}}) }}
+        </div>
+
+        <div class="createdat-form-article">
+            {{ form_errors(articleFormView.category) }}
+            {{ form_label(articleFormView.category) }}
+            {{ form_widget(articleFormView.category, {'attr': {'class': 'test'}}) }}
+        </div>
+
+        <div class="insertfile-form-article">
+            {{ form_errors(articleFormView.brochure) }}
+            {{ form_label(articleFormView.brochure) }}
+            {{ form_widget(articleFormView.brochure, {'attr': {'class': 'test'}}) }}
+        </div>
+
+        <div class="submit-form-article">
+            {{ form_widget(articleFormView.submit, {'attr': {'class': 'test'}}) }}
+        </div>
+
+    {{ form_end(articleFormView) }}
 
 {% endblock %}

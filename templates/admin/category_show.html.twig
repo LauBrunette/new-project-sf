@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <section class="categories-container">
+
+        {% if categories | length > 0 %}
+            {% for category in categories %}
+                <article class="category">
+
+                    <h1>{{ category.title }}</h1>
+                    <p>{{ category.description }}</p>
+
+                    <a href="{{ path('admin_delete_category', {'id': category.id}) }}">Supprimer cette catégorie</a>
+                    <a href="{{ path('admin_update_category', {'id': category.id}) }}">Modifier cette catégorie</a>
+
+                </article>
+            {% endfor %}
+
+        {% else %}
+            <p>Aucune catégorie trouvée pour ce contenu</p>
+        {% endif %}
+    </section>
+
+
+    <section class="insert-button">
+        <p><a href="{{ path('admin_insert_category') }}">Insérer une nouvelle catégorie</a></p>
+    </section>
+
+
+{% endblock %}

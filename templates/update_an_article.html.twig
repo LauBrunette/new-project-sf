@@ -2,13 +2,24 @@
 
 {% block main %}
 
-    <section class="articles-container">
+    {{ form_start(articleFormView) }}
 
-        <article class="article">
-            {# On va récupérer le titre de l'article pour l'afficher #}
-            <p>L'article {{ article.title }} bien été modifié dans la base de données</p>
-        </article>
+    <div class="form-title">
+        {{ form_label(articleFormView.title, 'Titre', {'label_attr': {'class': 'test'}}) }}
+        {{ form_widget(articleFormView.title, {'attr': {'class': 'test'}}) }}
+    </div>
+    <div class="form-content">
+        {{ form_label(articleFormView.content, 'Contenu', {'label_attr': {'class': 'test'}}) }}
+        {{ form_widget(articleFormView.content, {'attr': {'class': 'test'}}) }}
+    </div>
+    <div class="form-createdAt">
+        {{ form_label(articleFormView.createdAt, 'Créé le :', {'label_attr': {'class': 'test'}}) }}
+        {{ form_widget(articleFormView.createdAt, {'attr': {'class': 'test'}}) }}
+    </div>
+    <div class="form-submit">
+        {{ form_widget(articleFormView.submit, {'attr': {'class': 'test'}}) }}
+    </div>
 
-    </section>
+    {{ form_end(articleFormView) }}
 
 {% endblock %}

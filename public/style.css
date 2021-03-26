@@ -15,10 +15,10 @@
 }
 
 .header {
-    height: 100px;
+    height: 150px;
     background-color: lightsteelblue;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -48,6 +48,8 @@ h1 {
 }
 
 .flash-messages {
+    display: flex;
+    justify-content: center;
     font-family: "Arial Black";
     color: #B0413E;
     padding: 30px;
