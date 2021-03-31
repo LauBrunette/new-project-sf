@@ -21,7 +21,7 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        // Ceci est notre gabarit de formulaire
+        // Ceci est notre gabarit de formulaire, avec tous ses champs
         $builder
             ->add('title')
             ->add('content')
@@ -37,6 +37,7 @@ class ArticleType extends AbstractType
                 'placeholder' => ' ',
             ])
             ->add('submit', SubmitType::class)
+            // Permet d'ajouter une section afin d'insérer un fichier/image
             ->add('brochure', FileType::class, [
                 'label' => 'Fichier',
                 'mapped' => false,

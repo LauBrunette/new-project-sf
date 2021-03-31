@@ -49,8 +49,8 @@ class Article
      */
     private $category;
 
-
-
+    // Les getters/setters permettent de récupérer et d'enregistrer les informations reçues
+    // Dans ce cas il s'agit du fichier transmis
     /**
      * @ORM\Column(type="string")
      */

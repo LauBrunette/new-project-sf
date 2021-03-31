@@ -39,7 +39,7 @@ class ArticleController extends AbstractController
         // Si le formulaire est bel et bien envoyé (submit) et qu'il est valide...
         if ($articleForm->isSubmitted() && $articleForm->isValid() ) {
 
-            // ...on récupère l'entité Article avec les nouvelles données
+            // ...on récupère, dans l'entité Article,
             $brochureFile = $articleForm->get('brochure')->getData();
 
             if ($brochureFile) {
